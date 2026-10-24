@@ -1,0 +1,185 @@
+/* ==========================================
+   MatchUp - Feuille de style
+   Couleurs : bleu foncé, noir, blanc
+   Police : Montserrat
+   ========================================== */
+
+/* Variables de couleurs : modifie-les ici, tout le site change */
+:root {
+  --bleu: #0b2a5b;        /* couleur principale */
+  --bleu-clair: #1d4a9a;  /* variante pour les survols */
+  --noir: #0a0a0a;        /* couleur secondaire */
+  --blanc: #ffffff;       /* accentuation */
+  --fond: #f4f6fa;        /* fond des sections claires */
+  --gris: #5b6472;        /* texte secondaire */
+}
+
+/* Réglages de base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--noir);
+  background: var(--blanc);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container { width: min(1100px, 92%); margin: 0 auto; }
+section { padding: 70px 0; }
+.fond-clair { background: var(--fond); }
+
+h1, h2, h3 { line-height: 1.25; }
+h2.titre-section { font-size: 2rem; color: var(--bleu); text-align: center; margin-bottom: 12px; }
+.sous-titre { text-align: center; color: var(--gris); max-width: 650px; margin: 0 auto 40px; }
+
+/* ---------- En-tête et menu ---------- */
+.entete {
+  background: var(--noir);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.entete .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.logo { color: var(--blanc); font-size: 1.6rem; font-weight: 800; }
+.logo span { color: #6fa0ff; }
+
+.menu { display: flex; gap: 26px; list-style: none; }
+.menu a { color: var(--blanc); font-weight: 600; font-size: 0.95rem; padding: 6px 0; border-bottom: 2px solid transparent; }
+.menu a:hover, .menu a.actif { border-bottom-color: #6fa0ff; }
+
+/* Bouton du menu mobile (caché sur ordinateur) */
+.bouton-menu { display: none; background: none; border: 0; color: var(--blanc); font-size: 1.8rem; cursor: pointer; }
+
+/* ---------- Boutons ---------- */
+.bouton {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 2px solid var(--bleu);
+  background: var(--bleu);
+  color: var(--blanc);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.bouton:hover { background: var(--bleu-clair); border-color: var(--bleu-clair); }
+.bouton.contour { background: transparent; color: var(--blanc); border-color: var(--blanc); }
+.bouton.contour:hover { background: var(--blanc); color: var(--bleu); }
+.bouton.contour-bleu { background: transparent; color: var(--bleu); }
+.bouton.contour-bleu:hover { background: var(--bleu); color: var(--blanc); }
+
+/* ---------- Section principale (accueil) ---------- */
+.hero {
+  background: linear-gradient(rgba(11,42,91,0.88), rgba(10,10,10,0.85)), url('images/poignee-de-main.jpg') center/cover;
+  color: var(--blanc);
+  padding: 110px 0;
+}
+.hero h1 { font-size: 2.8rem; max-width: 700px; margin-bottom: 18px; }
+.hero p { font-size: 1.15rem; max-width: 600px; margin-bottom: 30px; }
+.hero .boutons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-page { background: var(--bleu); color: var(--blanc); padding: 60px 0; text-align: center; }
+.hero-page h1 { font-size: 2.2rem; }
+.hero-page p { margin-top: 10px; opacity: 0.9; }
+
+/* ---------- Cartes ---------- */
+.grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px; }
+
+.carte {
+  background: var(--blanc);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+.carte:hover { transform: translateY(-5px); }
+.carte img { width: 100%; height: 210px; object-fit: cover; }
+.carte .contenu { padding: 22px; }
+.carte h3 { color: var(--bleu); margin-bottom: 8px; }
+.carte p { color: var(--gris); margin-bottom: 16px; }
+.carte.simple { padding: 28px 22px; text-align: center; }
+.carte.simple .icone { font-size: 2.2rem; margin-bottom: 10px; }
+
+.etiquette { display: inline-block; background: var(--bleu); color: var(--blanc); padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; }
+
+/* ---------- Deux colonnes (texte + image) ---------- */
+.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.deux-colonnes img { border-radius: 14px; width: 100%; }
+.deux-colonnes ul { margin: 14px 0 0 20px; }
+.deux-colonnes li { margin-bottom: 8px; }
+
+/* ---------- Étapes ---------- */
+.etape .numero {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--bleu); color: var(--blanc);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; margin: 0 auto 12px;
+}
+
+/* ---------- Appel à l'action ---------- */
+.appel { background: var(--noir); color: var(--blanc); text-align: center; }
+.appel h2 { margin-bottom: 14px; }
+.appel p { margin-bottom: 26px; opacity: 0.85; }
+
+/* ---------- FAQ (afficher / masquer) ---------- */
+.faq-question {
+  width: 100%; text-align: left; background: var(--blanc);
+  border: 1px solid #d7dce6; padding: 16px 18px; margin-top: 12px;
+  font-family: inherit; font-size: 1rem; font-weight: 700; color: var(--bleu);
+  border-radius: 8px; cursor: pointer;
+}
+.faq-reponse { display: none; padding: 14px 18px; color: var(--gris); }
+.faq-reponse.ouvert { display: block; }
+
+/* ---------- Contact ---------- */
+.contact-grille { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+.info-contact p { margin-bottom: 14px; }
+.info-contact strong { color: var(--bleu); }
+
+form label { display: block; font-weight: 600; margin: 14px 0 6px; }
+form input, form select, form textarea {
+  width: 100%; padding: 12px; border: 1px solid #c5ccd9; border-radius: 8px;
+  font-family: inherit; font-size: 1rem;
+}
+form textarea { min-height: 130px; resize: vertical; }
+.message-erreur { color: #b00020; font-weight: 600; margin-top: 10px; }
+.message-ok { color: #0a7a3b; font-weight: 700; margin-top: 14px; }
+
+/* ---------- Pied de page ---------- */
+.pied { background: var(--noir); color: #cfd6e4; padding: 40px 0 20px; }
+.pied-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 26px; }
+.pied h4 { color: var(--blanc); margin-bottom: 10px; }
+.pied a:hover { color: #6fa0ff; }
+.pied li { list-style: none; margin-bottom: 6px; }
+.copyright { text-align: center; border-top: 1px solid #2a2f3a; margin-top: 26px; padding-top: 16px; font-size: 0.85rem; }
+
+/* ---------- Bouton retour en haut ---------- */
+#retour-haut {
+  display: none; position: fixed; right: 20px; bottom: 20px;
+  width: 46px; height: 46px; border-radius: 50%; border: 0;
+  background: var(--bleu); color: var(--blanc); font-size: 1.3rem; cursor: pointer;
+}
+
+/* ---------- Téléphone et tablette ---------- */
+@media (max-width: 800px) {
+  .bouton-menu { display: block; }
+  .menu {
+    display: none; flex-direction: column; gap: 0;
+    position: absolute; top: 100%; left: 0; right: 0; background: var(--noir);
+  }
+  .menu.ouvert { display: flex; }
+  .menu a { display: block; padding: 14px 4%; border-bottom: 1px solid #222; }
+  .hero h1 { font-size: 2rem; }
+  .deux-colonnes, .contact-grille { grid-template-columns: 1fr; }
+  section { padding: 50px 0; }
+}

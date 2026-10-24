@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - MatchUp</title>
+  <meta name="description" content="Contactez l'équipe MatchUp à l'ISG Sousse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html" class="actif">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Contactez-nous</h1>
+      <p>Étudiant ou employeur, nous sommes là pour vous répondre.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container contact-grille">
+
+      <!-- Coordonnées -->
+      <div class="info-contact">
+        <h2 style="color: var(--bleu); margin-bottom:18px;">Nos coordonnées</h2>
+        <p><strong>Adresse :</strong><br>ISG Sousse, Sousse</p>
+        <p><strong>Téléphone :</strong><br>[à compléter]</p>
+        <p><strong>Email :</strong><br>[à compléter]</p>
+        <p><strong>Horaires :</strong><br>[à compléter]</p>
+        <p><strong>Réseaux sociaux :</strong><br>[à compléter]</p>
+      </div>
+
+      <!-- Formulaire visuel (aucun envoi réel) -->
+      <div>
+        <h2 style="color: var(--bleu);">Écrivez-nous</h2>
+        <form id="formulaire-contact">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" placeholder="Votre nom">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="votre@email.com">
+
+          <label for="profil">Vous êtes</label>
+          <select id="profil">
+            <option>Étudiant</option>
+            <option>Employeur</option>
+            <option>Administration</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Votre message"></textarea>
+
+          <br><br>
+          <button type="submit" class="bouton">Envoyer</button>
+          <p id="retour-formulaire"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment ça marche - MatchUp</title>
+  <meta name="description" content="Découvrez comment MatchUp met en correspondance étudiants et employeurs grâce à l'IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html" class="actif">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>La mise en correspondance par l'IA</h1>
+      <p>Notre service principal, expliqué simplement.</p>
+    </div>
+  </section>
+
+  <!-- Présentation détaillée -->
+  <section>
+    <div class="container deux-colonnes">
+      <img src="images/poignee-de-main.jpg" alt="Poignée de main souriante entre un jeune professionnel et une recruteuse lors d'un entretien">
+      <div>
+        <h2 style="color: var(--bleu);">Un match, pas une simple annonce</h2>
+        <p style="margin-top:12px;">MatchUp ne se contente pas d'afficher des offres. Notre intelligence artificielle met en correspondance les profils des étudiants et les besoins des employeurs.</p>
+        <ul>
+          <li>Analyse des CV des chercheurs d'emploi</li>
+          <li>Analyse des critères recherchés par les employeurs</li>
+          <li>Mise en correspondance des profils et des besoins</li>
+        </ul>
+        <br>
+        <a href="contact.html" class="bouton">Commencer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étapes -->
+  <section class="fond-clair">
+    <div class="container">
+      <h2 class="titre-section">En 3 étapes</h2>
+      <div class="grille" style="margin-top:30px;">
+        <div class="carte simple etape">
+          <div class="numero">1</div>
+          <h3>Je m'inscris</h3>
+          <p>L'étudiant dépose son CV. L'employeur décrit ses critères et ses offres.</p>
+        </div>
+        <div class="carte simple etape">
+          <div class="numero">2</div>
+          <h3>L'IA analyse</h3>
+          <p>Les profils et les besoins sont comparés pour trouver les meilleures correspondances.</p>
+        </div>
+        <div class="carte simple etape">
+          <div class="numero">3</div>
+          <h3>Le match</h3>
+          <p>Quand les deux parties sont d'accord, la mise en relation est concrétisée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions fréquentes (cliquer pour afficher / masquer) -->
+  <section>
+    <div class="container" style="max-width:800px;">
+      <h2 class="titre-section">Questions fréquentes</h2>
+      <button class="faq-question">Qui peut utiliser MatchUp ?</button>
+      <div class="faq-reponse">Les étudiants de l'ISG Sousse, l'administration de l'ISG Sousse, et toute personne qui gère une petite ou grande entreprise.</div>
+      <button class="faq-question">Quand la commission est-elle prélevée ?</button>
+      <div class="faq-reponse">Uniquement en cas de concordance et d'accord entre les deux parties.</div>
+      <button class="faq-question">L'inscription est-elle mensuelle ?</button>
+      <div class="faq-reponse">Oui, la relation avec nos clients repose sur une inscription mensuelle.</div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
