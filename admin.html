@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration - MatchUp</title>
+  <meta name="description" content="Espace d'administration MatchUp : commandes et catalogue de services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="panier.html" id="lien-panier">Panier</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Administration</h1>
+      <p>Gestion des commandes et du catalogue MatchUp.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair" id="page-admin">
+    <div class="container">
+
+      <p id="admin-chargement" class="etat-vide">Vérification de vos droits…</p>
+
+      <div id="admin-refus" class="carte-contenu" hidden>
+        <h2>Accès réservé</h2>
+        <p id="admin-refus-texte"></p>
+        <p class="aide">
+          Si vous êtes administrateur, déconnectez-vous puis reconnectez-vous après
+          l'exécution de <code>supabase-admin.sql</code>.
+        </p>
+        <a href="compte.html" class="bouton contour-bleu">Retour à mon compte</a>
+      </div>
+
+      <div id="admin-contenu" hidden>
+
+        <!-- Gestion des commandes -->
+        <div class="carte-contenu">
+          <div class="entete-carte">
+            <h2>Gestion des commandes</h2>
+            <button type="button" class="bouton petit" id="bouton-actualiser-admin">Actualiser</button>
+          </div>
+
+          <div class="barre-outils">
+            <label for="filtre-statut">Filtrer par statut</label>
+            <select id="filtre-statut">
+              <option value="">Tous les statuts</option>
+              <option value="nouvelle">Nouvelle</option>
+              <option value="en_preparation">En préparation</option>
+              <option value="terminee">Terminée</option>
+              <option value="annulee">Annulée</option>
+            </select>
+            <button type="button" class="bouton petit contour-bleu" id="bouton-charger-plus" hidden>Charger la suite</button>
+            <span id="nb-commandes" class="aide"></span>
+          </div>
+
+          <p id="etat-commandes" class="etat-vide">Chargement des commandes…</p>
+          <div id="liste-commandes-admin" class="liste-commandes-admin"></div>
+        </div>
+
+        <!-- Gestion du catalogue -->
+        <div class="carte-contenu">
+          <div class="entete-carte">
+            <h2>Gestion des services</h2>
+            <button type="button" class="bouton petit contour-bleu" id="bouton-nouveau-service">Nouveau service</button>
+          </div>
+
+          <form id="formulaire-service" novalidate>
+            <div class="champs-colonnes">
+              <div>
+                <label for="svc-id">Identifiant</label>
+                <input type="text" id="svc-id" name="id" placeholder="stage-standard" pattern="[a-z0-9-]{3,60}" required>
+                <p class="aide">Minuscules, chiffres et tirets. Verrouillé en modification.</p>
+              </div>
+              <div>
+                <label for="svc-nom">Nom</label>
+                <input type="text" id="svc-nom" name="nom" maxlength="120" required>
+              </div>
+            </div>
+
+            <div class="champs-colonnes">
+              <div>
+                <label for="svc-categorie">Catégorie</label>
+                <select id="svc-categorie" name="categorie">
+                  <option value="Stages">Stages</option>
+                  <option value="Jobs">Jobs</option>
+                  <option value="Formation">Formation</option>
+                </select>
+              </div>
+              <div>
+                <label for="svc-prix">Prix (€)</label>
+                <input type="number" id="svc-prix" name="prix" min="0" max="10000" step="0.01" required>
+              </div>
+            </div>
+
+            <label for="svc-image">Image (URL HTTPS publique ou chemin existant)</label>
+            <input type="text" id="svc-image" name="image" placeholder="images/stage.jpg">
+
+            <label for="svc-description">Description</label>
+            <textarea id="svc-description" name="description" maxlength="2000"></textarea>
+
+            <label for="svc-caracteristiques">Caractéristiques (une par ligne)</label>
+            <textarea id="svc-caracteristiques" name="caracteristiques" placeholder="Profil analysé&#10;3 propositions&#10;Suivi par e-mail"></textarea>
+
+            <label class="ligne-option">
+              <input type="checkbox" id="svc-visible" name="visible" checked>
+              Visible dans la boutique
+            </label>
+
+            <p id="retour-service" role="alert" aria-live="polite"></p>
+
+            <button type="submit" class="bouton" id="bouton-enregistrer-service">Enregistrer</button>
+          </form>
+
+          <h3 class="titre-liste">Services enregistrés</h3>
+          <p id="etat-services" class="etat-vide">Chargement…</p>
+          <div id="liste-services" class="liste-services"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

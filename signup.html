@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - MatchUp</title>
+  <meta name="description" content="Créez votre compte MatchUp pour postuler aux stages et aux offres d'emploi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="panier.html" id="lien-panier">Panier</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Créer un compte</h1>
+      <p>Rejoignez MatchUp et accédez à votre espace personnel.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair">
+    <div class="container formulaire-cadre">
+
+      <form id="formulaire-inscription" novalidate>
+        <h2 class="titre-formulaire">Vos informations</h2>
+
+        <div class="champs-colonnes">
+          <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" autocomplete="given-name" required>
+          </div>
+          <div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <label for="email-inscription">Adresse e-mail</label>
+        <input type="email" id="email-inscription" name="email" autocomplete="email" required>
+
+        <label for="mot-de-passe">Mot de passe</label>
+        <input type="password" id="mot-de-passe" name="mot-de-passe" autocomplete="new-password" minlength="8" required>
+        <p class="aide">8 caractères minimum.</p>
+
+        <label for="confirmation">Confirmer le mot de passe</label>
+        <input type="password" id="confirmation" name="confirmation" autocomplete="new-password" minlength="8" required>
+
+        <p id="retour-inscription" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="bouton" id="bouton-inscription">Créer mon compte</button>
+
+        <p class="lien-secondaire">Déjà inscrit(e) ? <a href="login.html">Se connecter</a></p>
+      </form>
+
+      <div id="inscription-reussie" hidden>
+        <h2 class="titre-formulaire">Presque terminé</h2>
+        <p id="inscription-succes-message"></p>
+        <p class="aide">
+          Ouvrez ensuite le lien de confirmation reçu par e-mail, puis
+          <a href="login.html">connectez-vous</a>.
+        </p>
+        <a href="verification.html" class="bouton contour-bleu">Aller à la page de vérification</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

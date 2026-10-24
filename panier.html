@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - MatchUp</title>
+  <meta name="description" content="Votre panier de services MatchUp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="panier.html" id="lien-panier">Panier</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Votre panier</h1>
+      <p>Vos services MatchUp avant validation.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair">
+    <div class="container">
+
+      <div id="panier-vide">
+        <div class="carte-contenu">
+          <p class="etat-vide">Votre panier est vide.</p>
+          <a href="services.html" class="bouton contour-bleu">Découvrir les services</a>
+        </div>
+      </div>
+
+      <div id="panier-bloc" hidden>
+        <div class="carte-contenu">
+          <div class="entete-carte">
+            <h2>Services sélectionnés</h2>
+            <a href="services.html" class="bouton petit contour-bleu">Continuer mes achats</a>
+          </div>
+
+          <p id="panier-retour" role="alert" aria-live="polite"></p>
+
+          <ul class="liste-panier" id="panier-liste"></ul>
+
+          <div class="totaux-panier">
+            <p>Sous-total : <strong id="panier-sous-total">—</strong></p>
+            <p>Frais de dossier (simulés) : <strong id="panier-frais">—</strong></p>
+            <p class="total">Total : <strong id="panier-total">—</strong></p>
+          </div>
+
+          <div class="boutons-actions">
+            <a href="checkout.html" class="bouton">Passer la commande</a>
+          </div>
+          <p class="aide">Paiement de démonstration : aucune donnée bancaire n'est demandée.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

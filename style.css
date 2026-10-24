@@ -183,3 +183,183 @@ form textarea { min-height: 130px; resize: vertical; }
   .deux-colonnes, .contact-grille { grid-template-columns: 1fr; }
   section { padding: 50px 0; }
 }
+
+/* ---------- Comptes et espace personnel ---------- */
+.formulaire-cadre {
+  max-width: 620px;
+  background: var(--blanc);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.titre-formulaire { color: var(--bleu); font-size: 1.5rem; margin-bottom: 16px; }
+.champs-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.aide { color: var(--gris); font-size: 0.9rem; margin-top: 6px; }
+.aide a { color: var(--bleu); font-weight: 700; text-decoration: underline; }
+.lien-secondaire { margin-top: 18px; font-size: 0.95rem; color: var(--gris); }
+.lien-secondaire a { color: var(--bleu); font-weight: 700; text-decoration: underline; }
+
+.boutons-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 18px; }
+.bouton.petit { padding: 8px 16px; font-size: 0.9rem; }
+.bouton:disabled { opacity: 0.6; cursor: not-allowed; }
+.bouton:disabled:hover { background: var(--bleu); border-color: var(--bleu); }
+
+/* ---------- Cartes de l'espace compte et de l'administration ---------- */
+.carte-contenu {
+  background: var(--blanc);
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  margin-bottom: 26px;
+}
+.carte-contenu h2 { color: var(--bleu); font-size: 1.4rem; }
+.entete-carte {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 14px; flex-wrap: wrap; margin-bottom: 14px;
+}
+
+.badge-role {
+  display: inline-block; background: var(--bleu); color: var(--blanc);
+  padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+}
+.badge-role.admin { background: #a35b00; }
+
+.liste-identite div {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  padding: 10px 0; border-bottom: 1px solid #e7eaf1;
+}
+.liste-identite dt { font-weight: 700; color: var(--bleu); min-width: 160px; }
+.liste-identite dd { color: var(--noir); }
+
+.liste-commandes { list-style: none; margin-top: 12px; }
+.liste-commandes li {
+  padding: 10px 14px; margin-bottom: 8px;
+  border: 1px solid #e7eaf1; border-radius: 8px;
+  background: #fafbfd; font-size: 0.95rem;
+}
+
+.etat-vide {
+  color: var(--gris); background: #fafbfd;
+  border: 1px dashed #c5ccd9; border-radius: 8px;
+  padding: 16px; text-align: center;
+}
+
+.barre-outils { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+.barre-outils label { font-weight: 600; margin: 0; }
+.barre-outils select {
+  width: auto; padding: 10px 12px; border: 1px solid #c5ccd9;
+  border-radius: 8px; font-family: inherit; font-size: 1rem;
+}
+
+code { background: #eef1f7; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+@media (max-width: 800px) {
+  .champs-colonnes { grid-template-columns: 1fr; }
+  .formulaire-cadre, .carte-contenu { padding: 22px; }
+  .liste-identite dt { min-width: auto; width: 100%; }
+}
+
+/* ---------- Catalogue (services.html) ---------- */
+.prix-service { color: var(--bleu); font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+.liste-caracteristiques { list-style: none; margin-bottom: 16px; }
+.liste-caracteristiques li {
+  position: relative; padding-left: 18px; color: var(--gris);
+  font-size: 0.92rem; margin-bottom: 4px;
+}
+.liste-caracteristiques li::before { content: "✓"; position: absolute; left: 0; color: var(--bleu); font-weight: 700; }
+#catalogue-retour:empty { display: none; }
+#catalogue-retour { margin-bottom: 20px; }
+.lien-panier-catalogue { text-align: center; margin-top: 30px; }
+
+/* ---------- Panier ---------- */
+.liste-panier { list-style: none; }
+.ligne-panier {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  padding: 14px 0; border-bottom: 1px solid #e7eaf1;
+}
+.ligne-panier .nom { flex: 1 1 220px; font-weight: 700; color: var(--bleu); }
+.ligne-panier .prix-unitaire { color: var(--gris); min-width: 90px; }
+.ligne-panier .prix-ligne { font-weight: 700; min-width: 90px; }
+.ligne-panier .indispo { color: #b00020; font-weight: 700; }
+.quantite { display: inline-flex; align-items: center; gap: 8px; }
+.bouton-quantite {
+  width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--bleu);
+  background: var(--blanc); color: var(--bleu); font-size: 1.1rem; font-weight: 700; cursor: pointer;
+}
+.bouton-quantite:hover { background: var(--bleu); color: var(--blanc); }
+.valeur-quantite { min-width: 24px; text-align: center; font-weight: 700; }
+
+.totaux-panier { margin-top: 20px; margin-left: auto; max-width: 340px; }
+.totaux-panier p { display: flex; justify-content: space-between; gap: 20px; padding: 6px 0; }
+.totaux-panier .total { border-top: 2px solid var(--bleu); font-size: 1.1rem; color: var(--bleu); }
+
+/* ---------- Checkout ---------- */
+.recap-commande { border: 1px solid #e7eaf1; border-radius: 8px; padding: 16px; background: #fafbfd; }
+.ligne-recap { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; }
+.ligne-recap.sous-total { border-top: 1px solid #e7eaf1; margin-top: 6px; padding-top: 10px; }
+.ligne-recap.total { font-weight: 800; color: var(--bleu); font-size: 1.1rem; border-top: 2px solid var(--bleu); margin-top: 6px; padding-top: 10px; }
+
+.bloc-paiement { border: 1px solid #c5ccd9; border-radius: 8px; padding: 14px 16px; margin-top: 20px; }
+.bloc-paiement legend { font-weight: 700; color: var(--bleu); padding: 0 6px; }
+.ligne-option { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-top: 8px; }
+.ligne-option input { width: auto; }
+
+/* ---------- Confirmation ---------- */
+.reference-commande { font-weight: 800; color: var(--bleu); font-size: 1.1rem; }
+.totaux-commande { margin-top: 16px; border-top: 2px solid var(--bleu); padding-top: 10px; max-width: 340px; }
+.totaux-commande .total { font-weight: 800; color: var(--bleu); }
+.coordonnees-recap { margin-top: 16px; background: #fafbfd; border: 1px solid #e7eaf1; border-radius: 8px; padding: 14px 16px; }
+.coordonnees-recap h3 { color: var(--bleu); margin-bottom: 6px; }
+.total { color: var(--bleu); font-weight: 800; }
+
+/* ---------- Administration : commandes ---------- */
+.liste-commandes-admin { display: flex; flex-direction: column; gap: 12px; }
+.ligne-commande { border: 1px solid #e7eaf1; border-radius: 8px; background: #fafbfd; overflow: hidden; }
+.entete-ligne {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  padding: 12px 14px; background: var(--blanc); border-bottom: 1px solid #e7eaf1;
+}
+.entete-ligne .reference { font-weight: 800; color: var(--bleu); }
+.entete-ligne .date, .entete-ligne .client { color: var(--gris); font-size: 0.9rem; }
+.entete-ligne .montant { font-weight: 700; margin-left: auto; }
+.bascule-detail {
+  background: var(--blanc); border: 1px solid var(--bleu); color: var(--bleu);
+  border-radius: 6px; padding: 5px 10px; font-family: inherit; font-weight: 700;
+  font-size: 0.85rem; cursor: pointer;
+}
+.bascule-detail:hover { background: var(--bleu); color: var(--blanc); }
+.detail-commande { padding: 14px; background: var(--blanc); }
+.detail-commande .total { font-weight: 800; color: var(--bleu); }
+.zone-statut { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.zone-statut label { font-weight: 700; color: var(--bleu); margin: 0; }
+.zone-statut select {
+  padding: 9px 12px; border: 1px solid #c5ccd9; border-radius: 8px;
+  font-family: inherit; font-size: 0.95rem;
+}
+.zone-statut p { flex-basis: 100%; }
+
+.badge-statut {
+  display: inline-block; padding: 3px 12px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 700; background: #e7eaf1; color: var(--noir);
+}
+.statut-nouvelle { background: #dce9ff; color: var(--bleu); }
+.statut-en_preparation { background: #fff1d6; color: #8a5a00; }
+.statut-terminee { background: #d9f4e3; color: #0a7a3b; }
+.statut-annulee { background: #fde0e4; color: #b00020; }
+
+/* ---------- Administration : catalogue ---------- */
+.titre-liste { color: var(--bleu); margin-top: 26px; margin-bottom: 10px; }
+.liste-services { display: flex; flex-direction: column; gap: 10px; }
+.ligne-service {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  border: 1px solid #e7eaf1; border-radius: 8px; padding: 12px 14px; background: #fafbfd;
+}
+.ligne-service .nom { font-weight: 700; color: var(--bleu); flex: 1 1 200px; }
+.ligne-service .categorie, .ligne-service .prix { color: var(--gris); font-size: 0.92rem; }
+
+@media (max-width: 800px) {
+  .entete-ligne .montant { margin-left: 0; }
+  .totaux-panier { margin-left: 0; max-width: none; }
+  .ligne-panier { gap: 8px; }
+}

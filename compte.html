@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon compte - MatchUp</title>
+  <meta name="description" content="Votre espace personnel MatchUp : identité et historique.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="panier.html" id="lien-panier">Panier</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Mon compte</h1>
+      <p>Votre identité et votre historique MatchUp.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair" id="espace-compte">
+    <div class="container">
+
+      <!-- Identité -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Identité</h2>
+          <span class="badge-role" id="compte-role">Client</span>
+        </div>
+
+        <dl class="liste-identite">
+          <div><dt>Prénom</dt><dd id="compte-prenom">—</dd></div>
+          <div><dt>Nom</dt><dd id="compte-nom">—</dd></div>
+          <div><dt>Adresse e-mail</dt><dd id="compte-email">—</dd></div>
+        </dl>
+
+        <div class="boutons-actions">
+          <a href="admin.html" class="bouton contour-bleu" id="compte-lien-admin" hidden>Ouvrir l'administration</a>
+          <button type="button" class="bouton contour" id="bouton-deconnexion">Se déconnecter</button>
+        </div>
+        <p id="retour-compte" role="alert" aria-live="polite"></p>
+      </div>
+
+      <!-- Historique -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mes demandes</h2>
+          <button type="button" class="bouton petit" id="bouton-actualiser-commandes">Actualiser</button>
+        </div>
+
+        <p class="aide" id="note-historique">
+          Affichage limité aux 100 dernières entrées.
+        </p>
+        <ul class="liste-commandes" id="liste-commandes">
+          <li class="etat-vide">Chargement…</li>
+        </ul>
+
+        <p class="aide">
+          Cette section se remplit automatiquement dès que l'historique des demandes
+          sera activé dans la base Supabase.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

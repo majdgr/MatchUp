@@ -22,6 +22,9 @@
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="panier.html" id="lien-panier">Panier</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
     </div>
   </header>
@@ -84,6 +87,24 @@
     </div>
   </section>
 
+  <!-- Catalogue Supabase : services réservables -->
+  <section id="catalogue">
+    <div class="container">
+      <h2 class="titre-section">Réserver un service</h2>
+      <p class="sous-titre">
+        Tarifs issus de la base Supabase. Il s'agit de frais de dossier simulés :
+        aucun paiement réel, aucune donnée bancaire.
+      </p>
+
+      <p id="catalogue-retour" role="status" aria-live="polite"></p>
+      <div class="grille" id="catalogue-services"></div>
+
+      <p class="lien-panier-catalogue">
+        <a href="panier.html" class="bouton contour-bleu">Voir mon panier</a>
+      </p>
+    </div>
+  </section>
+
   <section class="appel">
     <div class="container">
       <h2>Une question sur nos services ?</h2>
@@ -108,6 +129,8 @@
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
           </ul>
         </div>
         <div>
@@ -120,6 +143,9 @@
   </footer>
 
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
-  <script src="script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
