@@ -363,3 +363,167 @@ code { background: #eef1f7; padding: 2px 6px; border-radius: 4px; font-size: 0.9
   .totaux-panier { margin-left: 0; max-width: none; }
   .ligne-panier { gap: 8px; }
 }
+
+/* ==========================================
+   MatchUp - Espaces personnels, offres et candidatures
+   ========================================== */
+
+/* ---------- Choix du r�le (inscription) ---------- */
+.choix-profil {
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.choix-profil .invisible {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+}
+.option-profil {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 2px solid #c5ccd9;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  margin: 0;
+  font-weight: 400;
+}
+.option-profil input { width: auto; margin-top: 5px; }
+.option-profil strong { display: block; color: var(--bleu); }
+.option-profil small { color: var(--gris); display: block; margin-top: 4px; }
+.option-profil:has(input:checked) {
+  border-color: var(--bleu);
+  background: #f2f6ff;
+}
+.espace-haut { margin-top: 26px; }
+
+/* ---------- Comp�tences (tags) ---------- */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 14px; }
+.tags.compact { gap: 6px; margin: 8px 0; }
+.tag-competence {
+  display: inline-block;
+  background: #eef2fb;
+  border: 1px solid #cdd8ef;
+  color: var(--bleu);
+  padding: 3px 11px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* ---------- Score de correspondance ---------- */
+.badge-score {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+.score-fort { background: #d9f4e3; color: #0a7a3b; border-color: #9ddcbb; }
+.score-moyen { background: #fff1d6; color: #8a5a00; border-color: #f0d9a5; }
+.score-faible { background: #fde0e4; color: #b00020; border-color: #f2bcc4; }
+
+/* ---------- Cartes d'offres ---------- */
+.offre-carte .contenu { display: flex; flex-direction: column; height: 100%; }
+.offre-haut { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.offre-entreprise { color: var(--bleu); font-weight: 700; margin-bottom: 8px; }
+.offre-extrait { font-size: 0.95rem; }
+.offre-meta { display: flex; flex-wrap: wrap; gap: 12px; color: var(--gris); font-size: 0.85rem; margin-bottom: 16px; }
+.offre-carte .bouton { margin-top: auto; align-self: flex-start; }
+
+/* ---------- Fiche d'une offre ---------- */
+.fiche-offre {
+  background: var(--blanc);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  margin-bottom: 22px;
+}
+.offre-entete {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #e7eaf1; padding-bottom: 16px;
+}
+.offre-entete h2 { color: var(--bleu); margin-top: 8px; }
+.offre-meta-large {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px; margin: 20px 0;
+}
+.bloc-meta { background: #fafbfd; border: 1px solid #e7eaf1; border-radius: 8px; padding: 12px 14px; }
+.bloc-meta .libelle { display: block; color: var(--gris); font-size: 0.8rem; text-transform: uppercase; letter-spacing: .03em; }
+.bloc-meta .valeur { display: block; color: var(--bleu); font-weight: 700; margin-top: 4px; }
+.titre-bloc { color: var(--bleu); margin-top: 22px; font-size: 1.15rem; }
+.texte-description { white-space: pre-line; color: var(--gris); }
+
+/* ---------- Bloc de candidature ---------- */
+.zone-candidature { margin-top: 26px; }
+.correspondance { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.deja-postule { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.confirmation-postul { margin-top: 14px; }
+
+/* ---------- Listes d'espaces (offres, candidats, comptes) ---------- */
+.liste-offres, .liste-candidatures, .liste-utilisateurs { display: flex; flex-direction: column; gap: 14px; }
+.ligne-offre, .ligne-candidature, .ligne-utilisateur {
+  border: 1px solid #e7eaf1;
+  border-radius: 10px;
+  background: var(--blanc);
+  padding: 14px 16px;
+}
+.ligne-candidature .ligne-detail {
+  border-top: 1px dashed #dfe4ee;
+  margin-top: 12px;
+  padding-top: 12px;
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+.ligne-principal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ligne-infos h4 { color: var(--bleu); }
+.ligne-infos p { color: var(--gris); font-size: 0.9rem; }
+.ligne-cotes { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.haut-ligne { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.haut-ligne h4 { margin: 0; }
+.ligne-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+.ligne-utilisateur .ligne-actions { margin-top: 0; }
+.select-statut, .select-role {
+  padding: 9px 12px; border: 1px solid #c5ccd9; border-radius: 8px;
+  font-family: inherit; font-size: 0.95rem; background: var(--blanc);
+}
+.ligne-utilisateur p[role="alert"] { flex-basis: 100%; }
+
+/* ---------- Paiements ---------- */
+.ligne-paiement {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+}
+.ligne-paiement .reference { font-weight: 800; color: var(--bleu); }
+.recu-paiement {
+  display: flex; flex-direction: column; gap: 2px;
+  background: #d9f4e3; color: #0a7a3b; border: 1px solid #9ddcbb;
+  border-radius: 8px; padding: 8px 14px; font-size: 0.9rem;
+}
+.recu-paiement .reference { font-weight: 800; }
+
+/* ---------- CV ---------- */
+.cv-etat {
+  background: #fafbfd; border: 1px dashed #c5ccd9; border-radius: 8px;
+  padding: 12px 14px; color: var(--gris); margin-bottom: 14px;
+}
+.cv-etat.ok { border-style: solid; border-color: #9ddcbb; background: #f2fbf7; color: #0a7a3b; font-weight: 700; }
+
+/* ---------- Divers ---------- */
+.barre-outils input[type="search"] {
+  width: auto; min-width: 220px; flex: 1 1 240px;
+  padding: 10px 12px; border: 1px solid #c5ccd9; border-radius: 8px;
+  font-family: inherit; font-size: 1rem;
+}
+.lien-vif { color: var(--bleu); font-weight: 700; text-decoration: underline; }
+.titre-liste { color: var(--bleu); margin-top: 26px; margin-bottom: 10px; }
+
+@media (max-width: 800px) {
+  .choix-profil { grid-template-columns: 1fr; }
+  .ligne-principal { flex-direction: column; }
+  .ligne-cotes { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .fiche-offre { padding: 20px; }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offres de stage et d'emploi - MatchUp</title>
+  <meta name="description" content="Parcourez les offres de stage et de part time publiées par les entreprises et découvrez vos correspondances.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="opportunites.html" class="actif">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Offres de stage et d'emploi</h1>
+      <p>Connectez-vous comme étudiant pour voir votre taux de correspondance sur chaque offre.</p>
+    </div>
+  </section>
+
+  <!-- Recommandations (connecté en étudiant) -->
+  <section class="fond-clair" id="bloc-recommandees" hidden>
+    <div class="container">
+      <h2 class="titre-section">Vos meilleures correspondances</h2>
+      <p class="sous-titre">Classement calculé à partir des compétences déclarées dans votre profil.</p>
+      <p id="etat-recommandees" class="etat-vide">Chargement des recommandations…</p>
+      <div class="grille" id="liste-recommandees"></div>
+    </div>
+  </section>
+
+  <!-- Toutes les offres -->
+  <section>
+    <div class="container">
+      <h2 class="titre-section">Toutes les offres ouvertes</h2>
+
+      <div class="barre-outils">
+        <label for="filtre-recherche">Rechercher</label>
+        <input type="search" id="filtre-recherche" placeholder="Titre, ville, entreprise, compétence…">
+
+        <label for="filtre-type">Type</label>
+        <select id="filtre-type">
+          <option value="">Tous les types</option>
+          <option value="stage">Stage</option>
+          <option value="part_time">Part time job</option>
+        </select>
+
+        <label for="filtre-tri">Trier</label>
+        <select id="filtre-tri">
+          <option value="recente">Les plus récentes</option>
+          <option value="score">Meilleure correspondance</option>
+        </select>
+      </div>
+
+      <p id="offres-etat" role="status" aria-live="polite">Chargement des offres…</p>
+      <div id="offres-liste" class="grille"></div>
+    </div>
+  </section>
+
+  <section class="appel">
+    <div class="container">
+      <h2>Vous cherchez un stage ou un job ?</h2>
+      <p>Créez votre profil, déposez votre CV et postulez en quelques clics.</p>
+      <a href="signup.html?role=etudiant" class="bouton">Créer mon compte étudiant</a>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-api.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

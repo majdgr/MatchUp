@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html" class="actif">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -49,7 +49,7 @@
           <li>Mise en correspondance des profils et des besoins</li>
         </ul>
         <br>
-        <a href="contact.html" class="bouton">Commencer</a>
+        <a href="signup.html" class="bouton">Commencer</a>
       </div>
     </div>
   </section>
@@ -84,10 +84,10 @@
       <h2 class="titre-section">Questions fréquentes</h2>
       <button class="faq-question">Qui peut utiliser MatchUp ?</button>
       <div class="faq-reponse">Les étudiants de l'ISG Sousse, l'administration de l'ISG Sousse, et toute personne qui gère une petite ou grande entreprise.</div>
-      <button class="faq-question">Quand la commission est-elle prélevée ?</button>
-      <div class="faq-reponse">Uniquement en cas de concordance et d'accord entre les deux parties.</div>
-      <button class="faq-question">L'inscription est-elle mensuelle ?</button>
-      <div class="faq-reponse">Oui, la relation avec nos clients repose sur une inscription mensuelle.</div>
+      <button class="faq-question">Combien ça coûte ?</button>
+      <div class="faq-reponse">Gratuit pour les étudiants. L'entreprise règle 150,00 € de frais de mise en relation uniquement après sélection d'un candidat (paiement simulé sur ce site).</div>
+      <button class="faq-question">Comment les offres recommandées sont-elles calculées ?</button>
+      <div class="faq-reponse">Chaque offre liste les compétences exigées. Le pourcentage affiché correspond à la part de ces compétences que vous avez déclarées dans votre profil.</div>
     </div>
   </section>
 
@@ -103,7 +103,8 @@
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -123,7 +124,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

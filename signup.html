@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inscription - MatchUp</title>
-  <meta name="description" content="Créez votre compte MatchUp pour postuler aux stages et aux offres d'emploi.">
+  <meta name="description" content="Créez votre compte MatchUp : étudiant à la recherche d'un stage, ou entreprise qui recrute.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -32,7 +32,7 @@
   <section class="hero-page">
     <div class="container">
       <h1>Créer un compte</h1>
-      <p>Rejoignez MatchUp et accédez à votre espace personnel.</p>
+      <p>Choisissez votre profil : il déterminera votre espace personnel.</p>
     </div>
   </section>
 
@@ -40,7 +40,29 @@
     <div class="container formulaire-cadre">
 
       <form id="formulaire-inscription" novalidate>
-        <h2 class="titre-formulaire">Vos informations</h2>
+        <h2 class="titre-formulaire">Je m'inscris en tant que</h2>
+
+        <fieldset class="choix-profil">
+          <legend class="invisible">Type de compte</legend>
+
+          <label class="option-profil">
+            <input type="radio" name="role" id="role-etudiant" value="etudiant" checked>
+            <span>
+              <strong>Étudiant</strong>
+              <small>Je cherche un stage ou un job, je dépose mon CV et je postule.</small>
+            </span>
+          </label>
+
+          <label class="option-profil">
+            <input type="radio" name="role" id="role-entreprise" value="entreprise">
+            <span>
+              <strong>Entreprise</strong>
+              <small>Je publie une offre, je consulte les candidats et je recrute.</small>
+            </span>
+          </label>
+        </fieldset>
+
+        <h2 class="titre-formulaire espace-haut">Vos informations</h2>
 
         <div class="champs-colonnes">
           <div>
@@ -89,13 +111,14 @@
       <div class="pied-grille">
         <div>
           <h4>MatchUp</h4>
-          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -115,7 +138,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

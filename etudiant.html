@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace étudiant - MatchUp</title>
+  <meta name="description" content="Votre profil, votre CV, vos recommandations et le suivi de vos candidatures MatchUp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Espace étudiant</h1>
+      <p>Votre profil, vos recommandations et le suivi de vos candidatures.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair" id="espace-etudiant" hidden>
+    <div class="container">
+
+      <!-- Profil -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mon profil</h2>
+          <button type="button" class="bouton petit contour" id="bouton-deconnexion">Se déconnecter</button>
+        </div>
+
+        <form id="formulaire-profil" novalidate>
+          <div class="champs-colonnes">
+            <div>
+              <label for="profil-prenom">Prénom</label>
+              <input type="text" id="profil-prenom" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="profil-nom">Nom</label>
+              <input type="text" id="profil-nom" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="profil-etablissement">Établissement</label>
+              <input type="text" id="profil-etablissement" placeholder="ISG Sousse">
+            </div>
+            <div>
+              <label for="profil-diplome">Diplôme / formation</label>
+              <input type="text" id="profil-diplome" placeholder="Licence 3 Informatique">
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="profil-annee">Année d'études</label>
+              <input type="text" id="profil-annee" placeholder="2026 - 2027">
+            </div>
+            <div>
+              <label for="profil-dispo">Je recherche</label>
+              <select id="profil-dispo">
+                <option value="stage">Un stage</option>
+                <option value="part_time">Un part time job</option>
+                <option value="les_deux">Les deux</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="profil-telephone">Téléphone</label>
+              <input type="tel" id="profil-telephone" autocomplete="tel">
+            </div>
+            <div>
+              <label for="profil-ville">Ville</label>
+              <input type="text" id="profil-ville" autocomplete="address-level2">
+            </div>
+          </div>
+
+          <label for="profil-competences">Mes compétences (séparées par des virgules)</label>
+          <input type="text" id="profil-competences" placeholder="JavaScript, SQL, React, comptabilité…" required>
+          <p class="aide">
+            Ce sont ces compétences qui déterminent le pourcentage de compatibilité affiché sur chaque offre.
+          </p>
+
+          <label for="profil-bio">Présentation</label>
+          <textarea id="profil-bio" maxlength="1200" placeholder="Quelques lignes sur votre parcours, vos objectifs et vos centres d'intérêt."></textarea>
+
+          <p id="retour-profil" role="alert" aria-live="polite"></p>
+
+          <button type="submit" class="bouton" id="bouton-enregistrer-profil">Enregistrer mon profil</button>
+        </form>
+      </div>
+
+      <!-- CV -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mon CV</h2>
+        </div>
+        <p class="cv-etat" id="cv-etat">Aucun CV déposé pour le moment (PDF, DOC ou DOCX, 3 Mo maximum).</p>
+        <div class="barre-outils">
+          <input type="file" id="cv-fichier" accept=".pdf,.doc,.docx,application/pdf">
+          <button type="button" class="bouton petit" id="bouton-deposer-cv">Déposer le CV</button>
+          <button type="button" class="bouton petit contour-bleu" id="bouton-voir-cv" hidden>Voir mon CV</button>
+          <button type="button" class="bouton petit contour" id="bouton-retirer-cv" hidden>Retirer le CV</button>
+        </div>
+        <p id="retour-cv" role="alert" aria-live="polite"></p>
+        <p class="aide">
+          Le CV est stocké dans un conteneur privé Supabase : il n'est lisible que par vous,
+          par l'administration, et par une entreprise à qui vous avez envoyé une candidature.
+        </p>
+      </div>
+
+      <!-- Recommandations -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Offres recommandées</h2>
+          <a href="opportunites.html" class="bouton petit contour-bleu">Toutes les offres</a>
+        </div>
+        <p id="etat-recommandees" class="etat-vide">Chargement des recommandations…</p>
+        <div id="liste-recommandees" class="grille"></div>
+      </div>
+
+      <!-- Suivi des candidatures -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mes candidatures</h2>
+        </div>
+        <p id="etat-candidatures" class="etat-vide">Chargement des candidatures…</p>
+        <div id="liste-candidatures" class="liste-candidatures"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-api.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

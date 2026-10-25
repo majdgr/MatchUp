@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mon compte - MatchUp</title>
-  <meta name="description" content="Votre espace personnel MatchUp : identité et historique.">
+  <meta name="description" content="Votre espace personnel MatchUp : identité, rôle et accès à votre espace.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -32,7 +32,7 @@
   <section class="hero-page">
     <div class="container">
       <h1>Mon compte</h1>
-      <p>Votre identité et votre historique MatchUp.</p>
+      <p>Votre identité et l'accès à votre espace personnel.</p>
     </div>
   </section>
 
@@ -43,7 +43,7 @@
       <div class="carte-contenu">
         <div class="entete-carte">
           <h2>Identité</h2>
-          <span class="badge-role" id="compte-role">Client</span>
+          <span class="badge-role" id="compte-role">—</span>
         </div>
 
         <dl class="liste-identite">
@@ -53,30 +53,21 @@
         </dl>
 
         <div class="boutons-actions">
+          <a href="etudiant.html" class="bouton" id="compte-lien-espace">Ouvrir mon espace</a>
           <a href="admin.html" class="bouton contour-bleu" id="compte-lien-admin" hidden>Ouvrir l'administration</a>
           <button type="button" class="bouton contour" id="bouton-deconnexion">Se déconnecter</button>
         </div>
         <p id="retour-compte" role="alert" aria-live="polite"></p>
       </div>
 
-      <!-- Historique -->
+      <!-- Résumé -->
       <div class="carte-contenu">
         <div class="entete-carte">
-          <h2>Mes demandes</h2>
-          <button type="button" class="bouton petit" id="bouton-actualiser-commandes">Actualiser</button>
+          <h2>Mon activité</h2>
         </div>
-
-        <p class="aide" id="note-historique">
-          Affichage limité aux 100 dernières entrées.
-        </p>
-        <ul class="liste-commandes" id="liste-commandes">
+        <ul class="liste-commandes" id="compte-resume">
           <li class="etat-vide">Chargement…</li>
         </ul>
-
-        <p class="aide">
-          Cette section se remplit automatiquement dès que l'historique des demandes
-          sera activé dans la base Supabase.
-        </p>
       </div>
 
     </div>
@@ -88,13 +79,14 @@
       <div class="pied-grille">
         <div>
           <h4>MatchUp</h4>
-          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -114,7 +106,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

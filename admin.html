@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administration - MatchUp</title>
-  <meta name="description" content="Espace d'administration MatchUp : commandes et catalogue de services.">
+  <meta name="description" content="Administration MatchUp : gestion des comptes, des opportunités, des candidatures et des paiements.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -32,7 +32,7 @@
   <section class="hero-page">
     <div class="container">
       <h1>Administration</h1>
-      <p>Gestion des commandes et du catalogue MatchUp.</p>
+      <p>Comptes, opportunités, candidatures et paiements.</p>
     </div>
   </section>
 
@@ -45,95 +45,80 @@
         <h2>Accès réservé</h2>
         <p id="admin-refus-texte"></p>
         <p class="aide">
-          Si vous êtes administrateur, déconnectez-vous puis reconnectez-vous après
-          l'exécution de <code>supabase-admin.sql</code>.
+          Le rôle administrateur s'attribue uniquement depuis le SQL Editor
+          (fichier <code>supabase-admin.sql</code>), jamais depuis le site.
         </p>
         <a href="compte.html" class="bouton contour-bleu">Retour à mon compte</a>
       </div>
 
       <div id="admin-contenu" hidden>
 
-        <!-- Gestion des commandes -->
+        <!-- Utilisateurs -->
         <div class="carte-contenu">
           <div class="entete-carte">
-            <h2>Gestion des commandes</h2>
+            <h2>Gestion des utilisateurs</h2>
             <button type="button" class="bouton petit" id="bouton-actualiser-admin">Actualiser</button>
           </div>
 
           <div class="barre-outils">
-            <label for="filtre-statut">Filtrer par statut</label>
-            <select id="filtre-statut">
-              <option value="">Tous les statuts</option>
-              <option value="nouvelle">Nouvelle</option>
-              <option value="en_preparation">En préparation</option>
-              <option value="terminee">Terminée</option>
-              <option value="annulee">Annulée</option>
-            </select>
-            <button type="button" class="bouton petit contour-bleu" id="bouton-charger-plus" hidden>Charger la suite</button>
-            <span id="nb-commandes" class="aide"></span>
+            <label for="recherche-utilisateur">Rechercher</label>
+            <input type="search" id="recherche-utilisateur" placeholder="e-mail, nom, entreprise…">
           </div>
 
-          <p id="etat-commandes" class="etat-vide">Chargement des commandes…</p>
-          <div id="liste-commandes-admin" class="liste-commandes-admin"></div>
+          <p id="etat-utilisateurs" class="etat-vide">Chargement des comptes…</p>
+          <div id="liste-utilisateurs" class="liste-utilisateurs"></div>
         </div>
 
-        <!-- Gestion du catalogue -->
+        <!-- Opportunités -->
         <div class="carte-contenu">
           <div class="entete-carte">
-            <h2>Gestion des services</h2>
-            <button type="button" class="bouton petit contour-bleu" id="bouton-nouveau-service">Nouveau service</button>
+            <h2>Gestion des opportunités</h2>
           </div>
 
-          <form id="formulaire-service" novalidate>
-            <div class="champs-colonnes">
-              <div>
-                <label for="svc-id">Identifiant</label>
-                <input type="text" id="svc-id" name="id" placeholder="stage-standard" pattern="[a-z0-9-]{3,60}" required>
-                <p class="aide">Minuscules, chiffres et tirets. Verrouillé en modification.</p>
-              </div>
-              <div>
-                <label for="svc-nom">Nom</label>
-                <input type="text" id="svc-nom" name="nom" maxlength="120" required>
-              </div>
-            </div>
+          <div class="barre-outils">
+            <label for="filtre-offres">Filtrer par statut</label>
+            <select id="filtre-offres">
+              <option value="">Toutes les offres</option>
+              <option value="ouverte">Ouvertes</option>
+              <option value="pourvue">Pourvues</option>
+              <option value="fermee">Fermées</option>
+            </select>
+          </div>
 
-            <div class="champs-colonnes">
-              <div>
-                <label for="svc-categorie">Catégorie</label>
-                <select id="svc-categorie" name="categorie">
-                  <option value="Stages">Stages</option>
-                  <option value="Jobs">Jobs</option>
-                  <option value="Formation">Formation</option>
-                </select>
-              </div>
-              <div>
-                <label for="svc-prix">Prix (€)</label>
-                <input type="number" id="svc-prix" name="prix" min="0" max="10000" step="0.01" required>
-              </div>
-            </div>
+          <p id="etat-offres-admin" class="etat-vide">Chargement des offres…</p>
+          <div id="liste-offres-admin" class="liste-offres"></div>
+        </div>
 
-            <label for="svc-image">Image (URL HTTPS publique ou chemin existant)</label>
-            <input type="text" id="svc-image" name="image" placeholder="images/stage.jpg">
+        <!-- Candidatures -->
+        <div class="carte-contenu">
+          <div class="entete-carte">
+            <h2>Gestion des candidatures</h2>
+          </div>
 
-            <label for="svc-description">Description</label>
-            <textarea id="svc-description" name="description" maxlength="2000"></textarea>
+          <div class="barre-outils">
+            <label for="filtre-candidatures">Filtrer par statut</label>
+            <select id="filtre-candidatures">
+              <option value="">Toutes les candidatures</option>
+              <option value="en_attente">En attente</option>
+              <option value="selectionnee">Sélectionnées</option>
+              <option value="acceptee">Acceptées</option>
+              <option value="refusee">Refusées</option>
+            </select>
+          </div>
 
-            <label for="svc-caracteristiques">Caractéristiques (une par ligne)</label>
-            <textarea id="svc-caracteristiques" name="caracteristiques" placeholder="Profil analysé&#10;3 propositions&#10;Suivi par e-mail"></textarea>
+          <p id="etat-candidatures-admin" class="etat-vide">Chargement des candidatures…</p>
+          <div id="liste-candidatures-admin" class="liste-candidatures"></div>
+        </div>
 
-            <label class="ligne-option">
-              <input type="checkbox" id="svc-visible" name="visible" checked>
-              Visible dans la boutique
-            </label>
-
-            <p id="retour-service" role="alert" aria-live="polite"></p>
-
-            <button type="submit" class="bouton" id="bouton-enregistrer-service">Enregistrer</button>
-          </form>
-
-          <h3 class="titre-liste">Services enregistrés</h3>
-          <p id="etat-services" class="etat-vide">Chargement…</p>
-          <div id="liste-services" class="liste-services"></div>
+        <!-- Paiements -->
+        <div class="carte-contenu">
+          <div class="entete-carte">
+            <h2>Paiements</h2>
+            <span class="badge-role" id="total-paiements">—</span>
+          </div>
+          <p class="aide">Paiements simulés : aucune donnée bancaire n'est stockée sur ce site.</p>
+          <p id="etat-paiements-admin" class="etat-vide">Chargement des paiements…</p>
+          <ul id="liste-paiements-admin" class="liste-commandes"></ul>
         </div>
 
       </div>
@@ -147,13 +132,14 @@
       <div class="pied-grille">
         <div>
           <h4>MatchUp</h4>
-          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -173,7 +159,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

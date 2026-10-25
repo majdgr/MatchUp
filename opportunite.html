@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmation de commande - MatchUp</title>
-  <meta name="description" content="Confirmation de votre candidature MatchUp.">
+  <title>Détail de l'offre - MatchUp</title>
+  <meta name="description" content="Description complète d'une opportunité MatchUp : compétences exigées, correspondance et candidature.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html" class="actif">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -31,30 +31,19 @@
 
   <section class="hero-page">
     <div class="container">
-      <h1>Commande confirmée</h1>
-      <p>Votre candidature a bien été enregistrée.</p>
+      <h1>Une opportunité</h1>
+      <p>Consultez le détail et envoyez votre candidature.</p>
     </div>
   </section>
 
   <section class="fond-clair">
-    <div class="container" id="zone-confirmation">
-
-      <div class="carte-contenu">
-        <h2>Détail de la commande</h2>
-        <p id="confirmation-retour" role="alert" aria-live="polite"></p>
-        <div id="confirmation-contenu"></div>
-
-        <div class="boutons-actions">
-          <a href="compte.html" class="bouton">Voir mon historique</a>
-          <a href="services.html" class="bouton contour-bleu">Continuer</a>
-        </div>
-
-        <p class="aide">
-          Paiement simulé : aucun débit n'a été effectué et aucune donnée bancaire
-          n'a été collectée.
-        </p>
-      </div>
-
+    <div class="container">
+      <p id="offre-chargement" class="etat-vide">Chargement de l'offre…</p>
+      <p id="offre-etat" role="alert" aria-live="polite"></p>
+      <div id="offre-contenu" class="fiche-offre"></div>
+      <p class="lien-secondaire">
+        <a href="opportunites.html">← Retour à la liste des offres</a>
+      </p>
     </div>
   </section>
 
@@ -64,13 +53,14 @@
       <div class="pied-grille">
         <div>
           <h4>MatchUp</h4>
-          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -90,7 +80,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

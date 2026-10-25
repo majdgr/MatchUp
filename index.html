@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MatchUp - Étudiants et employeurs, le bon match</title>
-  <meta name="description" content="MatchUp met en relation les étudiants de l'ISG Sousse et les employeurs grâce à l'intelligence artificielle.">
+  <title>MatchUp - Étudiants et entreprises, le bon match</title>
+  <meta name="description" content="MatchUp met en relation les étudiants de l'ISG Sousse qui cherchent un stage ou un job et les entreprises qui recrutent.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,11 +18,11 @@
       <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
       <ul class="menu" id="menu">
         <li><a href="index.html" class="actif">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
         <li><a href="service-detail.html">Comment ça marche</a></li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="panier.html" id="lien-panier">Panier</a></li>
         <li><a href="login.html" id="lien-compte">Connexion</a></li>
         <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
       </ul>
@@ -33,10 +33,14 @@
   <section class="hero">
     <div class="container">
       <h1>Le bon profil. La bonne opportunité. Un seul match.</h1>
-      <p>MatchUp met en relation les étudiants de l'ISG Sousse qui veulent développer leurs compétences et les employeurs qui cherchent des candidats qualifiés.</p>
+      <p>
+        Déposez votre CV, déclarez vos compétences : MatchUp affiche les stages et
+        les jobs les mieux adaptés à votre profil. Les entreprises publient leurs
+        offres, consultent les candidats et retiennent le bon profil.
+      </p>
       <div class="boutons">
-        <a href="contact.html" class="bouton">Je suis étudiant</a>
-        <a href="contact.html" class="bouton contour">Je suis employeur</a>
+        <a href="signup.html?role=etudiant" class="bouton">Je suis étudiant</a>
+        <a href="signup.html?role=entreprise" class="bouton contour">Je suis entreprise</a>
       </div>
     </div>
   </section>
@@ -45,49 +49,76 @@
   <section>
     <div class="container">
       <h2 class="titre-section">Pourquoi MatchUp ?</h2>
-      <p class="sous-titre">Énergie, innovation, efficacité, opportunité : une plateforme pensée pour les deux côtés.</p>
+      <p class="sous-titre">Trois rôles, un seul outil : la mise en relation étudiants – entreprises.</p>
       <div class="grille">
         <div class="carte simple">
           <div class="icone">🎓</div>
-          <h3>Pour les étudiants</h3>
-          <p>Trouvez un emploi ou un stage qui correspond à vos critères et à vos attentes.</p>
+          <h3>Étudiants</h3>
+          <p>Profil et CV, offres recommandées selon vos compétences, candidature et suivi de l'état de chaque dossier.</p>
         </div>
         <div class="carte simple">
           <div class="icone">🏢</div>
-          <h3>Pour les employeurs</h3>
-          <p>Trouvez, selon vos critères, des étudiants compétents et qualifiés, capables d'apporter une réelle valeur ajoutée à votre entreprise.</p>
+          <h3>Entreprises</h3>
+          <p>Description du poste et compétences exigées, liste des candidats classés par correspondance, sélection du candidat retenu.</p>
         </div>
         <div class="carte simple">
-          <div class="icone">🤖</div>
-          <h3>Une IA de mise en relation</h3>
-          <p>Notre intelligence artificielle analyse les profils et les besoins pour proposer les meilleures correspondances.</p>
+          <div class="icone">🛡️</div>
+          <h3>Administration</h3>
+          <p>Gestion des comptes (étudiant, entreprise, admin) et de toutes les opportunités publiées sur la plateforme.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services principaux -->
+  <!-- Comment ça marche -->
   <section class="fond-clair">
     <div class="container">
-      <h2 class="titre-section">Nos services</h2>
-      <p class="sous-titre">Deux types d'opportunités, un même objectif : le bon match.</p>
+      <h2 class="titre-section">Comment ça marche ?</h2>
+      <div class="grille" style="margin-top:30px;">
+        <div class="carte simple etape">
+          <div class="numero">1</div>
+          <h3>Créez votre compte</h3>
+          <p>Étudiant : profil, compétences et CV. Entreprise : secteur, description et offres.</p>
+        </div>
+        <div class="carte simple etape">
+          <div class="numero">2</div>
+          <h3>Les correspondances s'affichent</h3>
+          <p>Chaque offre affiche un pourcentage de compatibilité calculé à partir des compétences exigées et de votre profil.</p>
+        </div>
+        <div class="carte simple etape">
+          <div class="numero">3</div>
+          <h3>Le candidat est retenu</h3>
+          <p>L'entreprise sélectionne le candidat, règle les frais de mise en relation et le dossier est clos.</p>
+        </div>
+      </div>
+      <p class="lien-panier-catalogue">
+        <a href="opportunites.html" class="bouton contour-bleu">Parcourir les offres</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Types d'opportunités -->
+  <section>
+    <div class="container">
+      <h2 class="titre-section">Deux types d'opportunités</h2>
+      <p class="sous-titre">Trouvez le poste qui correspond à vos critères et à vos attentes.</p>
       <div class="grille">
         <div class="carte">
           <img src="images/stage.jpg" alt="Étudiants souriants utilisant des tablettes et des ordinateurs devant un mur avec le mot Stage">
           <div class="contenu">
             <span class="etiquette">Stages</span>
             <h3>Trouvez votre stage</h3>
-            <p>Des stages adaptés à votre parcours et à vos compétences.</p>
-            <a href="services.html" class="bouton contour-bleu">Découvrir</a>
+            <p>Des stages valorisants, filtrés selon vos compétences et votre disponibilité.</p>
+            <a href="opportunites.html" class="bouton contour-bleu">Découvrir</a>
           </div>
         </div>
         <div class="carte">
           <img src="images/candidat-ordinateur.jpg" alt="Jeune professionnel travaillant sur un ordinateur portable dans un bureau moderne">
           <div class="contenu">
-            <span class="etiquette">Jobs</span>
+            <span class="etiquette">Part time jobs</span>
             <h3>Décrochez un job</h3>
-            <p>Des emplois qui correspondent à vos critères et à vos attentes.</p>
-            <a href="services.html" class="bouton contour-bleu">Découvrir</a>
+            <p>Des emplois à mi-temps compatibles avec vos études et vos compétences.</p>
+            <a href="opportunites.html" class="bouton contour-bleu">Découvrir</a>
           </div>
         </div>
       </div>
@@ -98,8 +129,8 @@
   <section class="appel">
     <div class="container">
       <h2>Prêt à trouver votre match ?</h2>
-      <p>Rejoignez MatchUp et faites le premier pas vers la bonne opportunité.</p>
-      <a href="contact.html" class="bouton">Nous contacter</a>
+      <p>Créez votre compte en une minute, choisissez votre profil et commencez.</p>
+      <a href="signup.html" class="bouton">Créer mon compte</a>
     </div>
   </section>
 
@@ -109,13 +140,14 @@
       <div class="pied-grille">
         <div>
           <h4>MatchUp</h4>
-          <p>Mise en relation étudiants – employeurs.<br>ISG Sousse, Sousse.</p>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
             <li><a href="service-detail.html">Comment ça marche</a></li>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -135,7 +167,7 @@
   <button id="retour-haut" aria-label="Retour en haut">↑</button>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase-client.js"></script>
-  <script defer src="supabase-shop.js"></script>
+  <script defer src="supabase-api.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

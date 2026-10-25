@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace entreprise - MatchUp</title>
+  <meta name="description" content="Publiez vos offres, consultez les candidats, sélectionnez le profil retenu et réglez les frais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu principal -->
+  <header class="entete">
+    <div class="container">
+      <a href="index.html" class="logo">Match<span>Up</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="opportunites.html">Offres</a></li>
+        <li><a href="services.html">Tarifs</a></li>
+        <li><a href="service-detail.html">Comment ça marche</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" id="lien-compte">Connexion</a></li>
+        <li id="element-lien-admin" hidden><a href="admin.html" id="lien-admin">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero-page">
+    <div class="container">
+      <h1>Espace entreprise</h1>
+      <p>Vos offres, vos candidats et vos accords.</p>
+    </div>
+  </section>
+
+  <section class="fond-clair" id="espace-entreprise" hidden>
+    <div class="container">
+
+      <!-- Profil entreprise -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mon entreprise</h2>
+          <button type="button" class="bouton petit contour" id="bouton-deconnexion">Se déconnecter</button>
+        </div>
+
+        <form id="formulaire-entreprise" novalidate>
+          <div class="champs-colonnes">
+            <div>
+              <label for="ent-entreprise">Nom de l'entreprise</label>
+              <input type="text" id="ent-entreprise" required>
+            </div>
+            <div>
+              <label for="ent-secteur">Secteur d'activité</label>
+              <input type="text" id="ent-secteur" placeholder="Informatique, banque, commerce…">
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="ent-site">Site web</label>
+              <input type="url" id="ent-site" placeholder="https://www.exemple.tn">
+            </div>
+            <div>
+              <label for="ent-ville">Ville</label>
+              <input type="text" id="ent-ville">
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="ent-prenom">Contact - prénom</label>
+              <input type="text" id="ent-prenom">
+            </div>
+            <div>
+              <label for="ent-nom">Contact - nom</label>
+              <input type="text" id="ent-nom">
+            </div>
+          </div>
+
+          <label for="ent-telephone">Téléphone</label>
+          <input type="tel" id="ent-telephone">
+
+          <label for="ent-description">Présentation de l'entreprise</label>
+          <textarea id="ent-description" maxlength="1200"></textarea>
+
+          <p id="retour-profil" role="alert" aria-live="polite"></p>
+
+          <button type="submit" class="bouton" id="bouton-enregistrer-entreprise">Enregistrer le profil</button>
+        </form>
+      </div>
+
+      <!-- Offres -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Mes opportunités</h2>
+          <button type="button" class="bouton petit contour-bleu" id="bouton-nouvelle-offre">Nouvelle offre</button>
+        </div>
+
+        <form id="formulaire-offre" novalidate>
+          <div class="champs-colonnes">
+            <div>
+              <label for="offre-titre">Titre du poste</label>
+              <input type="text" id="offre-titre" maxlength="140" required placeholder="Développeur web junior">
+            </div>
+            <div>
+              <label for="offre-type">Type d'opportunité</label>
+              <select id="offre-type">
+                <option value="stage">Stage</option>
+                <option value="part_time">Part time job</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="offre-ville">Ville</label>
+              <input type="text" id="offre-ville">
+            </div>
+            <div>
+              <label for="offre-duree">Durée</label>
+              <input type="text" id="offre-duree" placeholder="3 mois, 6 mois, temps partiel…">
+            </div>
+          </div>
+
+          <div class="champs-colonnes">
+            <div>
+              <label for="offre-remuneration">Rémunération</label>
+              <input type="text" id="offre-remuneration" placeholder="400 € / mois, à négocier…">
+            </div>
+            <div>
+              <label for="offre-places">Places à pourvoir</label>
+              <input type="number" id="offre-places" min="1" max="50" value="1">
+            </div>
+          </div>
+
+          <label for="offre-competences">Compétences exigées (séparées par des virgules)</label>
+          <input type="text" id="offre-competences" placeholder="JavaScript, SQL, communication…" required>
+          <p class="aide">
+            Chaque compétence exigée entre dans le calcul du pourcentage de compatibilité affiché aux étudiants.
+          </p>
+
+          <label for="offre-description">Description du poste</label>
+          <textarea id="offre-description" maxlength="4000" placeholder="Missions, profil recherché, avantages…"></textarea>
+
+          <p id="retour-offre" role="alert" aria-live="polite"></p>
+
+          <button type="submit" class="bouton" id="bouton-enregistrer-offre">Publier l'offre</button>
+        </form>
+
+        <h3 class="titre-liste">Offres enregistrées</h3>
+        <p id="etat-offres" class="etat-vide">Chargement…</p>
+        <div id="liste-offres" class="liste-offres"></div>
+      </div>
+
+      <!-- Candidatures -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Candidats</h2>
+        </div>
+
+        <div class="barre-outils">
+          <label for="select-offre-candidatures">Offre suivie</label>
+          <select id="select-offre-candidatures">
+            <option value="">— Choisir une offre —</option>
+          </select>
+        </div>
+
+        <p id="etat-candidatures-entreprise" class="etat-vide">Choisissez une offre pour afficher ses candidatures.</p>
+        <div id="liste-candidatures-entreprise" class="liste-candidatures"></div>
+
+        <p id="retour-paiement" role="alert" aria-live="polite"></p>
+      </div>
+
+      <!-- Paiements -->
+      <div class="carte-contenu">
+        <div class="entete-carte">
+          <h2>Frais de mise en relation</h2>
+        </div>
+        <p class="aide">
+          Les frais sont dus uniquement après sélection d'un candidat : ils couvrent la mise en relation
+          et la conclusion de l'accord. Paiement simulé, aucune donnée bancaire n'est collectée.
+        </p>
+        <p id="etat-paiements" class="etat-vide">Chargement…</p>
+        <ul id="liste-paiements" class="liste-commandes"></ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <div class="container">
+      <div class="pied-grille">
+        <div>
+          <h4>MatchUp</h4>
+          <p>Mise en relation étudiants – entreprises.<br>ISG Sousse, Sousse.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="opportunites.html">Offres d'emploi et stages</a></li>
+            <li><a href="services.html">Tarifs</a></li>
+            <li><a href="service-detail.html">Comment ça marche</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="compte.html" id="lien-compte-pied">Mon compte</a></li>
+            <li><a href="admin.html" id="lien-admin-pied" hidden>Administration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>[email à compléter]<br>[téléphone à compléter]</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 MatchUp – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="retour-haut" aria-label="Retour en haut">↑</button>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-api.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>
